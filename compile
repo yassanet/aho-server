@@ -1,0 +1,11 @@
+ 1128  gcc -fPIC -c tee.c 
+ 1129  gcc -shared -Wl,-soname,libtee.so -o libtee.so tee.o
+ 1130  gcc -fPIC -c coffee.c 
+ 1131  vi coffee.c 
+ 1132  gcc -fPIC -c coffee.c 
+ 1133  gcc -shared -Wl,-soname,libcoffee.so -o libcoffee.so coffee.o
+ 1134  gcc -ldl -o aho_server aho_server.c 
+
+run
+
+LD_LIBRARY_PATH=. ./aho_server
